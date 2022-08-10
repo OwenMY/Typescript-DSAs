@@ -6,13 +6,13 @@ describe('TwoSum', () => {
     const target: number = 6;
     const expected: number[] = func(nums, target);
 
-    expect(expected).toBe([1, 3]);
+    expect(expected).toEqual([0, 4]);
   });
-  test('Should find indexes of two numbers within input array', () => {
+  test('Should return empty array if no solution is found', () => {
     const nums: number[] = [0, 0, 0, 0, 0];
     const target: number = 5;
     const expected: number[] = func(nums, target);
 
-    expect(expected).toBe(-1);
+    expect(expected).toEqual([]);
   });
 });
