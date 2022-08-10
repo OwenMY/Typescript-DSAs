@@ -1,0 +1,9 @@
+{
+  "name": "Typescript-DSAs",
+  "version": "1.0.0",
+  "description": "A repository for doing data structures in Typescript",
+  "main": "index.js",
+  "repository": "https://github.com/OwenMY/Typescript-DSAs.git",
+  "author": "Owen Yoshishige <owenyoshishige@gmail.com>",
+  "license": "MIT"
+}
