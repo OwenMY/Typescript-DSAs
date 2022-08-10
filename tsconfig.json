@@ -2,7 +2,8 @@
   "compilerOptions": {
     "outDir": "./dist",
     "allowJs": true,
-    "target": "es5"
+    "moduleResolution": "node",
+    "target": "ES2021"
   },
   "include": ["./src/**/*"]
 }

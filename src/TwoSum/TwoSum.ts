@@ -1,5 +1,5 @@
-const twoSum = (nums: number[], target: number):number => {
-  return target;
+const twoSum = (nums: number[], target: number):number | number[] => {
+  return -1;
 };
 
 module.exports = twoSum;
