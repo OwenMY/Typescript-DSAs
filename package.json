@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "format": "prettier --write",
+    "format": "prettier .prettierrc.json 'src/**/*.ts' -w",
     "compile": "tsc"
   },
   "devDependencies": {
