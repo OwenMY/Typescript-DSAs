@@ -11,5 +11,8 @@ module.exports = {
     'jest/globals': true,
     browser: true,
     node: true
+  },
+  rules: {
+    'no-var-requires': false
   }
 };
