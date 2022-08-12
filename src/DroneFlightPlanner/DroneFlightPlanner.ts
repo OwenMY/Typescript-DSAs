@@ -29,8 +29,25 @@ Constraints:
 
 */
 
-const calcDroneMinEnergy = () => {
-  //
+const calcDroneMinEnergy = (route: number[][]): number => {
+  let minEnergy = 0;
+  let height = route[0][2];
+  let energy = 0;
+
+  route.forEach(([_x, _y, z], index) => {
+    if (!index) return;
+
+    if (z < height) {
+      energy += height - z;
+    } else {
+      energy -= Math.abs(height - z);
+    }
+
+    height = z;
+    minEnergy = Math.min(minEnergy, energy);
+  });
+
+  return Math.abs(minEnergy);
 };
 
 module.exports = calcDroneMinEnergy;
