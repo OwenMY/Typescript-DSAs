@@ -39,8 +39,68 @@ All sr, sc, tr, tc are valid locations in the grid, grid[sr][sc] = grid[tr][tc] 
 [output] integer
 */
 
-const shortestCellPath = () => {
-  //
+const shortestCellPath = (
+  grid: number[][],
+  sr: number,
+  sc: number,
+  tr: number,
+  tc: number
+): number => {
+  const bfs = (coords: number[]) => {
+    let queue: number[][] = [coords];
+
+    while (queue.length) {
+      const n = queue.length;
+      pathCount++;
+
+      for (let i = 0; i < n; i++) {
+        const cell: number[] = queue.shift();
+        type qRow = number;
+        type qCol = number;
+        const [qRow, qCol] = cell;
+        if (grid[qRow][qCol]) {
+          grid[qRow][qCol] = 0;
+          const neighbors: number[][] = getNeighbors(cell);
+          queue.push(...neighbors);
+        }
+
+        if (qRow === tr && qCol === tc) {
+          resultCount = pathCount;
+          queue = [];
+          break;
+        }
+      }
+    }
+  };
+
+  const getNeighbors = (cell: number[]): number[][] => {
+    const neighbors: number[][] = [];
+    const xDelta: number[] = [0, 1, 0, -1];
+    const yDelta: number[] = [1, 0, -1, 0];
+    type cRow = number;
+    type cCol = number;
+    const [cRow, cCol] = cell;
+
+    for (let i = 0; i < xDelta.length; i++) {
+      const neighbor: number[] = [cRow + xDelta[i], cCol + yDelta[i]];
+      const [nRow, nCol] = neighbor;
+
+      if (0 <= nRow && 0 <= nCol && nRow < gridLength && nCol < rowLength) {
+        neighbors.push(neighbor);
+      }
+    }
+
+    return neighbors;
+  };
+
+  let pathCount = -1;
+  let resultCount = -1;
+  const gridLength: number = grid.length;
+  const rowLength: number = grid[0].length;
+
+  bfs([sr, sc]);
+
+  return resultCount;
 };
 
 module.exports = shortestCellPath;
